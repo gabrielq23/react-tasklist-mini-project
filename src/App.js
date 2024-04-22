@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react"
+import { NewTaskForm } from "./NewTaskForm"
+import { TaskList } from "./TaskList"
 
-function App() {
+export default function App() {
+  const [tasks, setTasks] = useState([])
+
+  function addTask(title) {
+    setTasks(currentTasks => {
+      return [
+        ...currentTasks,
+        { id: crypto.randomUUID(), title, completed: false },
+      ]
+    })
+  }
+
+  function toggleTask(id, completed) {
+    setTasks(currentTasks => {
+      return currentTasks.map(task => {
+        if (task.id === id) {
+          return { ...task, completed }
+        }
+
+        return task
+      })
+    })
+  }
+
+  function deleteTask(id) {
+    setTasks(currentTasks => {
+      return currentTasks.filter(task => task.id !== id)
+    })
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <NewTaskForm onSubmit={addTask} />
+      <h1 className="header">List of Tasks</h1>
+      <TaskList tasks={tasks} toggleTask={toggleTask} deleteTask={deleteTask} />
+    </>
+  )
 }
-
-export default App;
