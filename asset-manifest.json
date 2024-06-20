@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.js": "/react-tasklist-mini-project/static/js/main.dea76f93.js",
+    "static/js/453.00a0c7a1.chunk.js": "/react-tasklist-mini-project/static/js/453.00a0c7a1.chunk.js",
+    "index.html": "/react-tasklist-mini-project/index.html",
+    "main.dea76f93.js.map": "/react-tasklist-mini-project/static/js/main.dea76f93.js.map",
+    "453.00a0c7a1.chunk.js.map": "/react-tasklist-mini-project/static/js/453.00a0c7a1.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.dea76f93.js"
+  ]
+}
